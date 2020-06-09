@@ -11,13 +11,15 @@ public class NewsFeed {
 
   public NewsFeed() {
 
-    // YOUR CODE HERE
+    postArray = new Post[MAX_SIZE];
+       size =0;
 
   }
 
   public void add(Post message) {
 
-    // YOUR CODE HERE
+    postArray[size] = message;
+       this.size++;
 
   }
 
@@ -49,13 +51,44 @@ public class NewsFeed {
 
   public NewsFeed getPhotoPost(){
 
-    // YOUR CODE HERE
+     NewsFeed newsfeed1 = new NewsFeed();
+      Post [] postArrayTemp = new Post[MAX_SIZE];
+      for(int i=0;i<postArray.length ;i++){
+          if(postArray[i] instanceof PhotoPost){
+              postArrayTemp[0] = postArray[i];
+           }
+       }
+       newsfeed1.setPostArray(postArrayTemp);
+       return newsfeed1 ;
+
 
   }
 
   public NewsFeed plus(NewsFeed other){
 
-    // YOUR CODE HERE
+       NewsFeed newsfeed1 = new NewsFeed();
+       Post [] postArrayTemp = new Post[MAX_SIZE];
+       for(int i=0;i<other.getPostArray().length ;i++){
+           this.addPostMessage(other.getPostArray()[i]) ;
+       }
+       this.sort();
+       return newsfeed;
+   }
+  
+   public Post[] getPostArray() {
+       return postArray;
+   }
+   public void setPostArray(Post[] postArray) {
+       this.postArray = postArray;
+   }
+   public int getCount() {
+       return count;
+   }
+   public void setCount(int count) {
+       this.count = count;
+   }
+   public static int getMaxSize() {
+       return MAX_SIZE;
 
   }
 
