@@ -9,7 +9,7 @@ public class Post implements Likeable, Comparable<Post> {
 
     public Post(String userName) {
 
-      // YOUR CODE HERE
+      this.timeStamp = Calendar.getInstance().getTime();
 
     }
 
@@ -32,13 +32,17 @@ public class Post implements Likeable, Comparable<Post> {
 
   	public int compareTo(Post other) {
 
-  		// YOUR CODE HERE
+  		 return this.getTimeStamp().compareTo(other.getTimeStamp());
 
   	}
 
   	public boolean isPopular() {
 
-  		// YOUR CODE HERE
+       if(getNoOfLikes()>100){
+           return true;
+       }
+       return false;
+   }
 
   	}
 
