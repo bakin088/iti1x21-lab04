@@ -4,7 +4,8 @@ public class TextPost extends Post {
 
   public TextPost(String userName, String message) {
 
-    // YOUR CODE HERE
+    this.userName = userName;
+    this.message = message;
 
   }
 
@@ -20,7 +21,10 @@ public class TextPost extends Post {
 
   public boolean isPopular() {
 
-    // YOUR CODE HERE
+    if(getNoOfLikes()>50){
+       return true;
+    }
+    return false;
 
   }
 
